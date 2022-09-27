@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {DataService, STATE} from "./data.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'quiz-app';
+  state: STATE;
+
+  constructor(private dataService: DataService) {
+    this.state = this.dataService.state;
+    this.dataService.$state.subscribe(
+      (newState) => this.state = newState
+    )
+  }
+
 }

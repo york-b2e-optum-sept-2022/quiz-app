@@ -1,0 +1,7 @@
+<div>{{question.text}}</div>
+<div *ngFor="let answer of question.answers">
+  <label>
+    <input [ngModel]="question.selectedAnswer" (ngModelChange)="onAnswerSelect($event)" name="{{question.text}}" value="{{answer}}" type="radio">
+    {{answer}}
+  </label>
+</div>
